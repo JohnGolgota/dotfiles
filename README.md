@@ -1,2 +1,2 @@
 # alacritty-config
-uso GitHub como nube
+uso GitHub como nube xd
