@@ -1,0 +1,6 @@
+import = [
+"~/dotfiles/.config/alacritty/alacritty.toml"
+]
+
+[shell]
+program = "pwsh.exe"
