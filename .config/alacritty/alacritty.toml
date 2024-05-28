@@ -1,3 +1,6 @@
+[shell]
+program = "zellij"
+
 [window]
 opacity = 0.7
 
