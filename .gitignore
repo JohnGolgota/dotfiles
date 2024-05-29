@@ -14,3 +14,7 @@ Cargo.lock
 *.pdb
 
 *copy*
+
+# Added by cargo
+
+/target
