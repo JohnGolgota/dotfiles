@@ -1,5 +1,6 @@
 [shell]
-program = "zellij"
+args = ["-l", "-c", "zellij attach --index 0 || zellij"]
+program = "/bin/zsh"
 
 [window]
 opacity = 0.7
