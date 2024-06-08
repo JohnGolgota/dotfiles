@@ -1,8 +1,3 @@
-eval "$(zoxide init zsh)"
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
 # Set up the prompt
 
 autoload -Uz promptinit
