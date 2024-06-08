@@ -101,8 +101,8 @@ if [ -f ~/shell-setup/aliases.sh ]; then
     . ~/shell-setup/aliases.sh
 fi
 
-if [ -f ~/shell-setup/aliases.sh ]; then
-    . ~/shell-setup/aliases.sh
+if [ -f ~/zfunctions/qwe.sh ]; then
+    . ~/zfunctions/qwe.sh
 fi
 
 # enable programmable completion features (you don't need to enable
