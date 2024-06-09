@@ -1,0 +1,87 @@
+themes {
+
+    dracula {
+        fg 248 248 242
+        bg 40 42 54
+        red 255 85 85
+        green 80 250 123
+        yellow 241 250 140
+        blue 98 114 164
+        magenta 255 121 198
+        orange 255 184 108
+        cyan 139 233 253
+        black 0 0 0
+        white 255 255 255
+    }
+
+    rose-pine {
+        bg "#403d52"
+        fg "#e0def4"
+        red "#eb6f92"
+        green "#31748f"
+        blue "#9ccfd8"
+        yellow "#f6c177"
+        magenta "#c4a7e7"
+        orange "#fe640b"
+        cyan "#ebbcba"
+        black "#26233a"
+        white "#e0def4"
+    }
+
+    gruvbox-dark {
+        fg "#D5C4A1"
+        bg "#282828"
+        black "#3C3836"
+        red "#CC241D"
+        green "#98971A"
+        yellow "#D79921"
+        blue "#3C8588"
+        magenta "#B16286"
+        cyan "#689D6A"
+        white "#FBF1C7"
+        orange "#D65D0E"
+    }
+
+    tokyo-night {
+        fg 169 177 214
+        bg 26 27 38
+        black 56 62 90
+        red 249 51 87
+        green 158 206 106
+        yellow 224 175 104
+        blue 122 162 247
+        magenta 187 154 247
+        cyan 42 195 222
+        white 192 202 245
+        orange 255 158 100
+    }
+
+    kanagawa_dragon {
+        fg "#dcdccc"
+        bg "#1a1a1a"
+        red "#C34043"
+        green "#728F66"
+        yellow "#9D8F6F"
+        blue "#8BA4B0"
+        magenta "#ff79c6"
+        cyan "#8be9fd"
+        orange "#ffb86c"
+        black "#282828"
+        white "#8D908D"
+    } 
+
+    everforest {
+        fg "#d3c6aa"
+        bg "#282828"
+        red "#e67e80"
+        green "#a7c080"
+        yellow "#dbbc7f"
+        blue "#7fbbb3"
+        magenta "#d699b6"
+        cyan "#83c092"
+        orange "#e69875"
+        black "#1a1a1a"
+        white "#8D908D"
+    }
+
+}
