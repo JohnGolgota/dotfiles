@@ -1,4 +1,5 @@
 alias ni='touch'
+alias g='gitui'
 alias x='nvim'
 alias p='pwsh'
 alias vv='zellij'
