@@ -1,6 +1,5 @@
 alias ni='touch'
 alias x='nvim'
 alias p='pwsh'
-alias v='zellij'
-alias v='zsh -l -c zellij attach --index 0'
-alias vv='zsh -l -c zellij attach --index 0 || zsh'
+alias vv='zellij'
+alias v='zsh -l -c zellij attach --index 0 || zsh'
