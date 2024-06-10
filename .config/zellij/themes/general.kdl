@@ -14,6 +14,20 @@ themes {
         white 255 255 255
     }
 
+    catppuccin-mocha {
+        bg "#585b70" // Surface2
+        fg "#cdd6f4"
+        red "#f38ba8"
+        green "#a6e3a1"
+        blue "#89b4fa"
+        yellow "#f9e2af"
+        magenta "#f5c2e7" // Pink
+        orange "#fab387" // Peach
+        cyan "#89dceb" // Sky
+        black "#181825" // Mantle
+        white "#cdd6f4"
+    }
+
     rose-pine {
         bg "#403d52"
         fg "#e0def4"
@@ -26,20 +40,6 @@ themes {
         cyan "#ebbcba"
         black "#26233a"
         white "#e0def4"
-    }
-
-    gruvbox-dark {
-        fg "#D5C4A1"
-        bg "#282828"
-        black "#3C3836"
-        red "#CC241D"
-        green "#98971A"
-        yellow "#D79921"
-        blue "#3C8588"
-        magenta "#B16286"
-        cyan "#689D6A"
-        white "#FBF1C7"
-        orange "#D65D0E"
     }
 
     tokyo-night {
