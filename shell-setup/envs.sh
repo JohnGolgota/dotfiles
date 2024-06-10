@@ -9,7 +9,8 @@ export MY_CD_CLI_PATH="~/asd/bin/asd.ps1"
 export GPG_TTY=$(tty)
 
 # path
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin:$HOME/JS/bin:$HOME/asd/bin:$HOME/.dotnet/tools"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin:$HOME/JS/bin:$HOME/asd/bin:$HOME/.dotnet/tools:$HOME/.local/share/bob/nvim-bin"
+
 
 # darwin
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
