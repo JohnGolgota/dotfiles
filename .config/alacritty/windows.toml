@@ -1,5 +1,5 @@
 import = [
-"~/dotfiles/.config/alacritty/alacritty.toml"
+    "~/dotfiles/.config/alacritty/base.toml"
 ]
 
 [shell]

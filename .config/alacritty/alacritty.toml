@@ -1,17 +1,7 @@
 import = [
-    "~/.config/alacritty/color/carbonfox.toml",
-    "~/.config/alacritty/font/base.toml",
+    "~/.config/alacritty/base.toml",
 ]
 
 [shell]
 args = ["-l", "-c", "zellij attach --index 0 || zellij"]
 program = "/bin/zsh"
-
-[window]
-opacity = 0.7
-
-[keyboard]
-bindings = [
-{key = "T", mods = "Control|Shift", action = "SpawnNewInstance"},
-{key = "T", mods = "Super|Shift", action = "SpawnNewInstance"},
-]
