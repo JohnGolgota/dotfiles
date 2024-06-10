@@ -9,7 +9,9 @@ local config = wezterm.config_builder()
 config.default_prog = { "pwsh", "-NoLogo" }
 
 -- For example, changing the color scheme:
--- config.color_scheme = "Batman"
+-- config.color_scheme = "ayu"
+-- config.color_scheme = "Butrin (Gogh)"
+config.color_scheme = "carbonfox"
 
 config.window_background_opacity = 0.6
 
