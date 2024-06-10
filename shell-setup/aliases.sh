@@ -1,6 +1,10 @@
-alias ni='touch'
-alias g='gitui'
+
 alias x='nvim'
-alias p='pwsh'
+alias c='code'
 alias vv='zellij'
-alias v='zsh -l -c zellij attach --index 0 || zsh'
+alias gg='gitui'
+alias g='git'
+alias p='pwsh'
+alias v='zellij a --index 0 || zellij'
+
+alias ni='touch'
