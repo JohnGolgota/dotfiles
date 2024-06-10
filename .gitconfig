@@ -1,7 +1,7 @@
 [alias]
 	a = add
 	c = commit
-	p = push
+	ph = push
 	pl = pull
 	pr = pull --rebase
 	st = status -s
