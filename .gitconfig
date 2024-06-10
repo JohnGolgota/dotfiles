@@ -1,0 +1,27 @@
+[alias]
+	a = add
+	c = commit
+	p = push
+	pl = pull
+	pr = pull --rebase
+	st = status -s
+	ss = status
+	s = switch
+	br = branch
+	cl = clone
+	df = diff
+	l = log --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = JohnGolgota
+	email = 104475729+JohnGolgota@users.noreply.github.com
+	signingkey = D452BBAE4AD72C79
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
