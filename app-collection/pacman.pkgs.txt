@@ -4,3 +4,4 @@ base-devel
 fakeroot
 git
 yay
+barrier

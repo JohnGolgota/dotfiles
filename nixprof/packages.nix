@@ -1,5 +1,5 @@
 environment.systemPackages = [
     pkgs.stow
-    pkgs.powershell
     pkgs.fzf
+    pkgs.gh
 ];
