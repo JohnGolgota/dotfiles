@@ -5,3 +5,4 @@ fakeroot
 git
 yay
 barrier
+gitui
