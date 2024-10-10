@@ -1,0 +1,8 @@
+cmake
+code
+base-devel
+fakeroot
+git
+yay
+barrier
+gitui
