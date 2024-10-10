@@ -1,0 +1,7 @@
+theme = "base16_transparent"
+
+[keys.normal]
+C-s = ":w"
+
+[keys.insert]
+C-s = ["normal_mode", ":w"]
