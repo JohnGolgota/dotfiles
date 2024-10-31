@@ -113,6 +113,10 @@ if [ -f ~/zfunctions/qwe.sh ]; then
     . ~/zfunctions/qwe.sh
 fi
 
+if [ -f ~/zfunctions/base.sh ]; then
+    . ~/zfunctions/base.sh
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

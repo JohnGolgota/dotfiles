@@ -1,0 +1,4 @@
+wez(){
+    wezterm & \
+    exit
+}
