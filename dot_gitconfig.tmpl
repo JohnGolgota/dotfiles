@@ -1,5 +1,6 @@
 [alias]
 	a = add
+	f = fetch
 	c = commit
 	ph = push
 	pl = pull
@@ -18,10 +19,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = JohnGolgota
-	email = 104475729+JohnGolgota@users.noreply.github.com
-	signingkey = D452BBAE4AD72C79
+	name = {{ .github.user }}
+	email = {{ .github.email }}
+	signingkey = {{ keyring "github" .github.user }}
 [commit]
 	gpgsign = true
-[pull]
-	rebase = true
