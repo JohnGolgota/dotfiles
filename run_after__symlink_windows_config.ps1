@@ -7,7 +7,7 @@ if ($IsWindows) {
     if (-not (Test-Path $rioConfDir)) {
         New-Item -Path $rioConfDir -ItemType Junction -Value ${HOME}\.config\rio
     }
-    $helixConfDir = (Join-Path $env:LOCALAPPDATA "helix")
+    $helixConfDir = (Join-Path $env:APPDATA "helix")
     if (-not (Test-Path $helixConfDir)) {
         New-Item -Path $helixConfDir -ItemType Junction -Value ${HOME}\.config\helix
     }
