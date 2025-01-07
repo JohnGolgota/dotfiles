@@ -1,0 +1,12 @@
+frame = "full"
+idle = true
+maximized = false
+no-multigrid = false
+srgb = false
+tabs = true
+mouse-cursor-icon = "arrow"
+title-hidden = true
+
+[font]
+normal = ["CaskaydiaCove Nerd Font"]
+size = 14.0
