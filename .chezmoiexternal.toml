@@ -1,6 +1,0 @@
-["AppData/Local/nvim"]
-    type = "archive"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    url = "https://github.com/JohnGolgota/dotfiles/archive/main.zip"
