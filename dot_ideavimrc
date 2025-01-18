@@ -1,0 +1,3 @@
+imap <C-S> <Esc>:w<CR>
+
+nmap <C-S> :w<CR>

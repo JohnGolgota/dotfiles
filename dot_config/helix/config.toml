@@ -2,7 +2,6 @@ theme = "base16_transparent"
 
 [editor]
 line-number = "relative"
-clipboard = "system"
 
 [keys.normal]
 C-s = ":w"
