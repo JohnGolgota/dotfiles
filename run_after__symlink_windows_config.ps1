@@ -31,6 +31,12 @@ if ($IsWindows)
         New-Item -Path $alacrittyConfDir -ItemType Junction -Value ${HOME}\.config\alacritty
     }
 
+    $nuShellConfDir = (Join-Path $env:APPDATA "nushell")
+    if (-not (Test-Path $nuShellConfDir))
+    {
+        New-Item -Path $nuShellConfDir -ItemType Junction -Value ${HOME}\.config\nushell
+    }
+
 }
 
 if (-not ($isWindows))
