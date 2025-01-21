@@ -201,3 +201,5 @@ plugins {
 theme "carbonfox"
 
 default_layout "work"
+
+default_shell "pwsh"
