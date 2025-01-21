@@ -128,4 +128,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if command -v atuin &> /dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+
 bash -l -c "zellij attach --index 0 || zellij"
