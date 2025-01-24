@@ -1,0 +1,9 @@
+curl
+wget
+git
+zsh
+unzip
+gzip
+tar
+tmux
+neovim

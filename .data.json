@@ -1,0 +1,253 @@
+{
+  "chezmoi": {
+    "arch": "arm64",
+    "args": [
+      "/opt/homebrew/bin/chezmoi",
+      "data"
+    ],
+    "cacheDir": "/Users/usuario/.cache/chezmoi",
+    "command": "data",
+    "commandDir": "/Users/usuario/.local/share/chezmoi",
+    "config": {
+      "add": {
+        "encrypt": false,
+        "secrets": "warning",
+        "templateSymlinks": false
+      },
+      "age": {
+        "args": null,
+        "command": "age",
+        "identities": null,
+        "identity": "",
+        "passphrase": false,
+        "recipient": "",
+        "recipients": null,
+        "recipientsFile": "",
+        "recipientsFiles": null,
+        "suffix": ".age",
+        "symmetric": false,
+        "useBuiltin": false
+      },
+      "awsSecretsManager": {
+        "profile": "",
+        "region": ""
+      },
+      "azureKeyVault": {
+        "defaultVault": ""
+      },
+      "bitwarden": {
+        "command": "bw"
+      },
+      "bitwardenSecrets": {
+        "command": "bws"
+      },
+      "cacheDir": "/Users/usuario/.cache/chezmoi",
+      "cd": {
+        "args": null,
+        "command": ""
+      },
+      "color": "auto",
+      "completion": {
+        "custom": false
+      },
+      "dashlane": {
+        "args": null,
+        "command": "dcli"
+      },
+      "data": {
+        "email": "104475729+JohnGolgota@users.noreply.github.com"
+      },
+      "destDir": "/Users/usuario",
+      "diff": {
+        "args": null,
+        "command": "",
+        "exclude": [],
+        "pager": "",
+        "reverse": false,
+        "scriptContents": true
+      },
+      "doppler": {
+        "args": null,
+        "command": "doppler",
+        "config": "",
+        "project": ""
+      },
+      "edit": {
+        "apply": false,
+        "args": null,
+        "command": "nvim",
+        "hardlink": true,
+        "minDuration": 1000000000,
+        "watch": false
+      },
+      "ejson": {
+        "key": "",
+        "keyDir": "/opt/ejson/keys"
+      },
+      "encryption": "",
+      "env": null,
+      "format": "json",
+      "git": {
+        "autoadd": false,
+        "autocommit": false,
+        "autopush": false,
+        "command": "git",
+        "commitMessageTemplate": "",
+        "commitMessageTemplateFile": "",
+        "lfs": false
+      },
+      "gitHub": {
+        "refreshPeriod": 60000000000
+      },
+      "gopass": {
+        "command": "gopass",
+        "mode": ""
+      },
+      "gpg": {
+        "args": null,
+        "command": "gpg",
+        "recipient": "",
+        "recipients": null,
+        "suffix": ".asc",
+        "symmetric": false
+      },
+      "hcpVaultSecrets": {
+        "applicationName": "",
+        "args": null,
+        "command": "vlt",
+        "organizationId": "",
+        "projectId": ""
+      },
+      "hooks": null,
+      "interactive": false,
+      "interpreters": {
+        "ps1": {
+          "args": [
+            "-NoLogo"
+          ],
+          "command": "pwsh"
+        }
+      },
+      "keepassxc": {
+        "args": null,
+        "command": "keepassxc-cli",
+        "database": "",
+        "mode": "cache-password",
+        "prompt": true
+      },
+      "keeper": {
+        "args": null,
+        "command": "keeper"
+      },
+      "lastpass": {
+        "command": "lpass"
+      },
+      "merge": {
+        "args": null,
+        "command": "vimdiff"
+      },
+      "mode": "file",
+      "onepassword": {
+        "command": "op",
+        "mode": "account",
+        "prompt": true
+      },
+      "onepasswordSDK": {
+        "token": "",
+        "tokenEnvVar": "OP_SERVICE_ACCOUNT_TOKEN"
+      },
+      "pager": "",
+      "pass": {
+        "command": "pass"
+      },
+      "passhole": {
+        "args": null,
+        "command": "ph",
+        "prompt": true
+      },
+      "persistentState": "",
+      "pinentry": {
+        "args": null,
+        "command": "",
+        "options": [
+          "allow-external-password-cache"
+        ]
+      },
+      "progress": "auto",
+      "rbw": {
+        "command": "rbw"
+      },
+      "safe": true,
+      "scriptEnv": {
+        "COSA_TEST": "my_value",
+        "EDITOR": "nvim"
+      },
+      "scriptTempDir": "",
+      "secret": {
+        "args": null,
+        "command": ""
+      },
+      "sourceDir": "/Users/usuario/.local/share/chezmoi",
+      "status": {
+        "exclude": [],
+        "pathStyle": "relative"
+      },
+      "tempDir": "/var/folders/nz/0yy696l925g6lstylgk_lw840000gp/T/",
+      "template": {
+        "options": [
+          "missingkey=error"
+        ]
+      },
+      "textConv": null,
+      "umask": 18,
+      "update": {
+        "apply": true,
+        "args": null,
+        "command": "",
+        "recurseSubmodules": true
+      },
+      "useBuiltinAge": "auto",
+      "useBuiltinGit": "auto",
+      "vault": {
+        "command": "vault"
+      },
+      "verbose": false,
+      "verify": {
+        "exclude": []
+      },
+      "warnings": {
+        "configFileTemplateHasChanged": true
+      },
+      "workingTree": "/Users/usuario/.local/share/chezmoi"
+    },
+    "configFile": "/Users/usuario/.config/chezmoi/chezmoi.toml",
+    "destDir": "/Users/usuario",
+    "executable": "/opt/homebrew/bin/chezmoi",
+    "fqdnHostname": "iMac-de-PORTADA.local",
+    "gid": "20",
+    "group": "staff",
+    "homeDir": "/Users/usuario",
+    "hostname": "iMac-de-PORTADA",
+    "kernel": {},
+    "os": "darwin",
+    "osRelease": {},
+    "pathListSeparator": ":",
+    "pathSeparator": "/",
+    "sourceDir": "/Users/usuario/.local/share/chezmoi",
+    "uid": "502",
+    "username": "usuario",
+    "version": {
+      "builtBy": "Homebrew",
+      "commit": "Homebrew",
+      "date": "2025-01-13T00:05:36Z",
+      "version": "2.58.0"
+    },
+    "windowsVersion": {},
+    "workingTree": "/Users/usuario/.local/share/chezmoi"
+  },
+  "email": "104475729+JohnGolgota@users.noreply.github.com",
+  "github": {
+    "email": "104475729+JohnGolgota@users.noreply.github.com",
+    "user": "JohnGolgota"
+  }
+}
