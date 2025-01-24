@@ -12,7 +12,7 @@ export GPG_TTY=$(tty)
 export DOTNET_ROOT="$HOME/.dotnet"
 
 # path
-export PATH="$PATH:$DOTNET_ROOT:/Applications/Docker.app/Contents/Resources/bin:$HOME/JS/bin:$HOME/asd/bin:$HOME/.dotnet/tools:$HOME/.local/share/bob/nvim-bin"
+# export PATH="$PATH:$DOTNET_ROOT:/Applications/Docker.app/Contents/Resources/bin:$HOME/JS/bin:$HOME/asd/bin:$HOME/.dotnet/tools:$HOME/.local/share/bob/nvim-bin"
 
 
 # darwin
