@@ -1,6 +1,6 @@
-if [ -f ~/shell-setup/envs.sh ]; then
-    . ~/shell-setup/envs.sh
-fi
+# if [ -f ~/shell-setup/envs.sh ]; then
+#     . ~/shell-setup/envs.sh
+# fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -129,7 +129,9 @@ if ! shopt -oq posix; then
 fi
 
 if command -v atuin &> /dev/null 2>&1; then
-    eval "$(atuin init zsh)"
+    eval "$(atuin init bash)"
 fi
 
-bash -l -c "zellij attach --index 0 || zellij"
+if command -v zoxide &> /dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
