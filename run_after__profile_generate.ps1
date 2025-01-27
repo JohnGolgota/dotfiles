@@ -36,6 +36,14 @@ function Set-MacOSEnvs
     Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
 }
 
+function Set-GenericPath {
+    $Paths = @(
+        "$(join-path ${HOME} ".config" "a-cli" "bin")"
+    )
+    $NewPath = $Paths -join ':'
+    Add-Content -Path $PROFILE -Value "`$Env:PATH = `"${NewPath}:`$Env:PATH`""
+}
+
 function Set-CustomModulesImports
 {
 
@@ -63,6 +71,9 @@ function Start-MainProccess
 
     # Imports
     Set-CustomModulesImports
+
+    # generic path
+    Set-GenericPath
 
     # extra envs
     if ($IsLinux)
