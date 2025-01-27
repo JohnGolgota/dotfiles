@@ -37,6 +37,8 @@ if ($IsWindows)
         New-Item -Path $nuShellConfDir -ItemType Junction -Value ${HOME}\.config\nushell
     }
 
+    Get-Content -Path ${HOME}\.config\powershell\profile.ps1 | Set-Content -Path $PROFILE.CurrentUserAllHosts
+
 }
 
 if (-not ($isWindows))

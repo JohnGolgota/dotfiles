@@ -1,0 +1,11 @@
+default_profile = "main"
+
+[profiles.main]
+adapter = "mysql"
+theme = "harlequin"
+limit = 10000
+keymap_name = [ "vscode" ]
+host = "localhost"
+port = 3306
+user = "main"
+password = "jojos"

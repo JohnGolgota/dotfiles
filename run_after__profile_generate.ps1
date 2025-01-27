@@ -1,56 +1,67 @@
-function Set-NoWindowsPath
+function Get-LinuxPaths
 {
-    $Paths = @(
-        "${HOME}/.local/share/bob/nvim-bin",
-        "${HOME}/.deno/bin"
-        "${HOME}/bin"
-        "${HOME}/.cargo/bin"
+    return @(
+        "$(join-path ${HOME} ".local" "share" "bob" "nvim-bin")",
+        "$(join-path ${HOME} "bin")",
+        "$(join-path ${HOME} ".deno" "bin")",
+        "$(join-path ${HOME} ".cargo" "bin")"
     )
-    $NewPath = $Paths -join ':'
-
-    Add-Content -Path $PROFILE -Value "`$Env:PATH = `"${NewPath}:`$Env:PATH`""
 }
 
-function Set-LinuxEnvs
+function Get-MacOSPaths
 {
-    Set-NoWindowsPath
-}
-
-function Set-MacOSEnvs
-{
-    $Paths = @(
-        "/opt/homebrew/opt/openjdk/bin",
-        "/opt/homebrew/bin",
-        "/opt/homebrew/sbin",
-        "/Applications/Docker.app/Contents/Resources/bin",
-        "${HOME}/.local/share/pnpm",
-        "${HOME}/.bun/bin",
-        "${HOME}/.nix-profile/bin",
-        "/nix/var/nix/profiles/default/bin"
+    return @(
+        "$(join-path ${HOME} ".local" "share" "pnpm")",
+        "$(join-path ${HOME} ".bun" "bin")",
+        "$(join-path ${HOME} ".nix-profile" "bin")",
+        "$(join-path "opt" "homebrew" "opt" "openjdk" "bin")",
+        "$(join-path "opt" "homebrew" "bin")",
+        "$(join-path "opt" "homebrew" "sbin")",
+        "$(join-path "Applications" "Docker.app" "Contents" "Resources" "bin")",
+        "$(join-path "nix" "var" "nix" "profiles" "default" "bin")"
     )
-    $NewPath = $Paths -join ':'
-    Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${NewPath}:`$Env:PATH`""
-
-    Set-NoWindowsPath
-
-    Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
 }
 
-function Set-GenericPath {
-    $Paths = @(
+function Get-genericPaths {
+    return @(
         "$(join-path ${HOME} ".config" "a-cli" "bin")"
     )
-    $NewPath = $Paths -join ':'
-    Add-Content -Path $PROFILE -Value "`$Env:PATH = `"${NewPath}:`$Env:PATH`""
+}
+
+function Set-FullPath
+{
+    $Paths = Get-genericPaths
+
+    if ($IsMacOS)
+    {
+        $Paths += Get-MacOSPaths
+    }
+    if ($IsLinux)
+    {
+        $Paths += Get-LinuxPaths
+    }
+
+    $separator = if ($IsWindows)
+    {
+        ";"
+    } else
+    {
+        ":"
+    }
+    $NewPath = $Paths -join $separator
+    Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${NewPath}${separator}`$Env:PATH`""
 }
 
 function Set-CustomModulesImports
 {
-
     Add-Content -Path $PROFILE -Value "`n. $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_Functions.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "PS_Alias.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "CustomVarsModule.ps1")"
+}
 
+function Set-MacOSEnvs
+{
+    Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
 }
 
 function Start-MainProccess
@@ -73,14 +84,9 @@ function Start-MainProccess
     Set-CustomModulesImports
 
     # generic path
-    Set-GenericPath
+    Set-FullPath
 
     # extra envs
-    if ($IsLinux)
-    {
-        Set-LinuxEnvs
-    }
-
     if ($IsMacOS)
     {
         Set-MacOSEnvs
