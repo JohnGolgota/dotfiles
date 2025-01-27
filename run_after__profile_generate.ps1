@@ -22,16 +22,11 @@ function Get-MacOSPaths
     )
 }
 
-function Get-genericPaths {
-    return @(
-        "$(join-path ${HOME} ".config" "a-cli" "bin")"
-    )
-}
-
 function Set-FullPath
 {
-    $Paths = Get-genericPaths
-
+    $Paths = @(
+        "$(join-path ${HOME} ".config" "a-cli" "bin")"
+    )
     if ($IsMacOS)
     {
         $Paths += Get-MacOSPaths
