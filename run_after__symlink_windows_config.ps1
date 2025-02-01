@@ -37,6 +37,12 @@ if ($IsWindows)
         New-Item -Path $nuShellConfDir -ItemType Junction -Value ${HOME}\.config\nushell
     }
 
+    $yaziConfDir = (Join-Path $env:APPDATA "yazi")
+    if (-not (Test-Path $yaziConfDir))
+    {
+        New-Item -Path $yaziConfDir -ItemType Junction -Value ${HOME}\.config\yazi
+    }
+
     Get-Content -Path ${HOME}\.config\powershell\profile.ps1 | Set-Content -Path $PROFILE.CurrentUserAllHosts
 
 }
