@@ -29,10 +29,10 @@ alt + shift + l         : komorebic move right
 alt + shift + return    : komorebic promote
 
 # Stack windows
-# alt + left              : komorebic stack left
-# alt + down              : komorebic stack down
-# alt + up                : komorebic stack up
-# alt + right             : komorebic stack right
+alt + left              : komorebic stack left
+alt + down              : komorebic stack down
+alt + up                : komorebic stack up
+alt + right             : komorebic stack right
 alt + oem_1             : komorebic unstack # oem_1 is ;
 alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
 alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
@@ -73,7 +73,6 @@ alt + shift + 4         : komorebic move-to-workspace 3
 alt + shift + 5         : komorebic move-to-workspace 4
 alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
-alt + shift + 8         : komorebic move-to-workspace 7
 
 alt + n [
     wezterm-gui : echo "WezTerm"

@@ -27,6 +27,7 @@ config.keys = {
 	{ key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "v", mods = "LEADER", action = act.QuickSelect },
 
 	{ key = "f", mods = "LEADER", action = act.ShowTabNavigator },
 
@@ -35,6 +36,13 @@ config.keys = {
 
 	-- workspaces
 	{ key = "w", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
+
+    -- panes
+	{ key = "-", mods = "LEADER", action = act.SplitPane({ direction = "Down" }) },
+	{ key = "+", mods = "LEADER", action = act.SplitPane({ direction = "Right" }) },
+
+	{ key = "_", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
+	{ key = "*", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
 }
 
 config.key_tables = {
