@@ -128,6 +128,12 @@
                 "hidden": true,
                 "name": "Ubuntu-24.04",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{d2bc50df-afbb-5007-8f24-33777f78ae76}",
+                "hidden": false,
+                "name": "NixOs",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },

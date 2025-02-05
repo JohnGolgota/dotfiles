@@ -54,9 +54,16 @@ function Set-CustomModulesImports
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "CustomVarsModule.ps1")"
 }
 
-function Set-MacOSEnvs
+function Set-Envs
 {
-    Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
+    if ($IsWindows)
+    {
+        Add-Content -Path $PROFILE -Value "`n`$Env:KOMOREBI_CONFIG_HOME = `"$(Join-Path ${HOME} ".config" "komorebi")`""
+    }
+    if ($IsMacOS)
+    {
+        Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
+    }
 }
 
 function Start-MainProccess
@@ -81,11 +88,8 @@ function Start-MainProccess
     # generic path
     Set-FullPath
 
-    # extra envs
-    if ($IsMacOS)
-    {
-        Set-MacOSEnvs
-    }
+    # Envs
+    Set-Envs
 
     # others programs configs
     if (Get-Command "fnm" -ErrorAction SilentlyContinue)
