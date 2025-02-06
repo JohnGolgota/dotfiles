@@ -27,10 +27,12 @@ function Set-FullPath
     $Paths = @(
         "$(join-path ${HOME} ".config" "a-cli" "bin")"
     )
+
     if ($IsMacOS)
     {
         $Paths += Get-MacOSPaths
     }
+
     if ($IsLinux)
     {
         $Paths += Get-LinuxPaths
@@ -52,6 +54,7 @@ function Set-CustomModulesImports
     Add-Content -Path $PROFILE -Value "`n. $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_Functions.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "PS_Alias.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "CustomVarsModule.ps1")"
+    Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_PSReadLineKeyHandler.ps1")"
 }
 
 function Set-Envs

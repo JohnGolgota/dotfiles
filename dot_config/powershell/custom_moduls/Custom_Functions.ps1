@@ -59,3 +59,4 @@ function Zellij-Attach
 {
     zellij a --index 0 || zellij
 }
+
