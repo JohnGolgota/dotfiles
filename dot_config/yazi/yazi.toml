@@ -1,0 +1,16 @@
+[opener]
+edit = [
+  {run = "%EDITOR% %*", block = true, orphan = false, for = "windows"},
+]
+open = [
+  { run = "%EDITOR% %*", desc = "open", for = "windows"},
+]
+
+[open]
+prepend_rules = [
+    { name = "*.ps1", use = "edit" },
+]
+append_rules = [
+    { name = "*", use = "edit" },
+]
+
