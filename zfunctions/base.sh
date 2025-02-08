@@ -1,4 +1,4 @@
 wez(){
-    wezterm & \
+    $TERMINAL & \
     exit
 }
