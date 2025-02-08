@@ -1,7 +1,10 @@
+[general]
 import = [
     "~/.config/alacritty/base.toml",
 ]
 
-[shell]
+[terminal]
+
+[terminal.shell]
 args = ["-l", "-c", "zellij attach --index 0 || zellij"]
 program = "/bin/zsh"
