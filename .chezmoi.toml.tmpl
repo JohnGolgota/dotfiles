@@ -14,3 +14,11 @@
 [interpreters.ps1]
     command = "pwsh"
     args = ["-NoLogo"]
+
+[secretJSON]
+    command = "pwsh"
+    args = ["-NoLogo", "-ExecutionPolicy", "Bypass", "-File", "{{ .chezmoi.homeDir }}/secrets/get-secrets.ps1"]
+
+[secret]
+    command = "pwsh"
+    args = ["-NoLogo", "-ExecutionPolicy", "Bypass", "-File", "{{ .chezmoi.homeDir }}/secrets/get-secrets.ps1"]
