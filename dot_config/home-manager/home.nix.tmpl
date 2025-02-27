@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "{{- .chezmoi.group }}";
+  home.username = "{{- .chezmoi.username }}";
   home.homeDirectory = "{{- .chezmoi.homeDir }}";
 
   # This value determines the Home Manager release that your configuration is
@@ -20,13 +20,14 @@
   home.packages = with pkgs; [
     # a
     alacritty
+    atuin
     # b
     bat
     bruno
     # c
     chezmoi
     # d
-    dbeaver-bin
+    # dbeaver-bin
     # discord
     # e
     # f
@@ -35,7 +36,7 @@
     fzf
     # g
     gh
-    ghostty
+    # ghostty
     git
     # github-desktop
     gitui
@@ -46,9 +47,11 @@
     # k
     # l
     # m
+    manga-tui
     # n
     neovide
     neovim
+    nushell
     # o
     # p
     # q
