@@ -31,6 +31,7 @@ function Set-FullPath
     if ($IsMacOS)
     {
         $Paths += Get-MacOSPaths
+        $Paths += Get-LinuxPaths
     }
 
     if ($IsLinux)
