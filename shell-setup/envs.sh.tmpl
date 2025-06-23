@@ -29,6 +29,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-export EDITOR="nvim"
-export TERMINAL="wezterm"
+export EDITOR="{{ env "EDITOR" }}"
+export TERMINAL="{{ env "TERMINAL" }}"
 
