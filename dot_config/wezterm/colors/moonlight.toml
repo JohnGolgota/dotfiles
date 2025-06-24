@@ -1,0 +1,82 @@
+[colors]
+ansi = [
+    '#212337',
+    '#ff757f',
+    '#2df4c0',
+    '#ffc777',
+    '#b4a4f4',
+    '#ecb2f0',
+    '#04d1f9',
+    '#EEFFFF',
+]
+background = '#212337'
+brights = [
+    '#7486d6',
+    '#ff757f',
+    '#2df4c0',
+    '#ffc777',
+    '#b4a4f4',
+    '#ecb2f0',
+    '#04d1f9',
+    '#EEFFFF',
+]
+compose_cursor = '#ffc777'
+cursor_bg = '#EEFFFF'
+cursor_border = '#EEFFFF'
+cursor_fg = '#212337'
+foreground = '#EEFFFF'
+scrollbar_thumb = '#a1abe0'
+selection_bg = 'rgba(26.666668% 27.843138% 35.294117% 50%)'
+selection_fg = 'rgba(0% 0% 0% 0%)'
+split = '#7486d6'
+
+[colors.indexed]
+
+[colors.tab_bar]
+background = '#212337'
+
+[colors.tab_bar.active_tab]
+bg_color = '#b4a4f4'
+fg_color = '#212337'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab]
+bg_color = '#212337'
+fg_color = '#EEFFFF'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = '#7486d6'
+fg_color = '#EEFFFF'
+intensity = 'Normal'
+italic = true
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab]
+bg_color = '#212337'
+fg_color = '#EEFFFF'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab_hover]
+bg_color = '#ecb2f0'
+fg_color = '#EEFFFF'
+intensity = 'Normal'
+italic = true
+strikethrough = false
+underline = 'None'
+
+[metadata]
+aliases = []
+author = 'jacobrreed'
+name = 'Moonlight'
+origin_url = 'https://github.com/jacobrreed/moonlight-wezterm'
