@@ -40,5 +40,4 @@ Con eso puedo usar:
 {{ $config := secretJSON }}
 signingkey = {{ $config.git.signingkey }}
 ```
-por ejemplo.
-
+por ejemplo. o algo
