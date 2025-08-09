@@ -1,4 +1,3 @@
-
 alias x='nvim'
 alias c='code'
 alias vv='zellij'
