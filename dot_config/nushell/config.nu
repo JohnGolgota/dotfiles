@@ -1,24 +1,19 @@
 # Environment variables
+load-env {
+    MY_GITUI: "gitui"
+    MY_EXPLORER: "yazi"
+    MY_EDITOR: "nvim"
+}
+
 $env.config.show_banner = false
-$env.config.buffer_editor = "nvim"
+$env.config.buffer_editor = $env.MY_EDITOR
 
-# Aliases
-alias x = nvim
-alias g = git
-alias gg = gitui
-
-def pw [args: string] {
-    pwsh -c $"($args)"
-}
-
-def path_exists [dir: string] {
-    if ($dir | path exists) {
-        return $dir
-    }
-    return null
-}
-
+# Plugins
 const zoxide_path = "~/.config/zoxide/.zoxide.nu"
 const zoxide_module = (if ($zoxide_path | path exists) {$zoxide_path})
 source $zoxide_module
 
+
+source shellSetup/keybindings.nu
+source shellSetup/aliases.nu
+source functions/index.nu
