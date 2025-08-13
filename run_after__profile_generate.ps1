@@ -85,7 +85,7 @@ function Start-MainProccess
     Set-Content -Path $PROFILE -Value ""
 
     # Config PS region
-    Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode Windows"
+    Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode Vi"
 
     # Imports
     Set-CustomModulesImports

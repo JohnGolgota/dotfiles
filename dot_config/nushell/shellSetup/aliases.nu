@@ -1,7 +1,7 @@
 # Aliases
-alias x = ^$env.MY_EDITOR
+alias x = nvim
 alias g = git
-alias gg = ^$env.MY_GITUI
+alias gg = gitui
 alias p = pwsh
 alias v = zellij-attach
 alias vv = zellij
