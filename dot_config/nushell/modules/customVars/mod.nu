@@ -1,7 +1,6 @@
 const VarsTempPath = $nu.home-path + "/temp"
 const VarsTempFilePath = $VarsTempPath + "/vars.nu"
 const VarsTempFileJsonPath = $VarsTempFilePath + ".json"
-mut $vars = open $VarsTempFileJsonPath
 
 # test path
 if ($VarsTempFilePath | path exists) {} else {
@@ -10,13 +9,6 @@ if ($VarsTempFilePath | path exists) {} else {
     }
     print "Creating temp file"
     touch $VarsTempFilePath
-}
-
-def Save-CustomVars [
-    --name (-n): string
-    --val (-v): string
-] {
-
 }
 
 def Write-CustomVars [vars: string] {

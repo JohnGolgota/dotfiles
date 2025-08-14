@@ -21,3 +21,4 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 source shellSetup/keybindings.nu
 source shellSetup/aliases.nu
 source functions/index.nu
+source modules/customVars/mod.nu
