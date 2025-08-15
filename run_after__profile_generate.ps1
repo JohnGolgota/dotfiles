@@ -2,9 +2,13 @@ function Get-LinuxPaths
 {
     return @(
         "$(join-path ${HOME} ".local" "share" "bob" "nvim-bin")",
+        "$(join-path ${HOME} ".local" "share" "pnpm")",
         "$(join-path ${HOME} "bin")",
         "$(join-path ${HOME} ".deno" "bin")",
-        "$(join-path ${HOME} ".cargo" "bin")"
+        "$(join-path ${HOME} ".cargo" "bin")",
+        "$(join-path ${HOME} ".bun" "bin")",
+        "$(join-path "/home" "linuxbrew" ".linuxbrew" "sbin")",
+        "$(join-path "/home" "linuxbrew" ".linuxbrew" "bin")"
     )
 }
 

@@ -7,7 +7,7 @@ local act = wezterm.action
 
 -- This is where you actually apply your config choices
 {{ if eq .chezmoi.os "linux" }}
-config.default_prog = { "pwsh", "-NoLogo" }
+config.default_prog = { "nu" }
 {{ else }}
 config.default_prog = { os.getenv("SHELL"), "-NoLogo" }
 {{ end }}config.color_scheme = "moonlight"
