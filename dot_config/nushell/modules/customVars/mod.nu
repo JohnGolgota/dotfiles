@@ -6,7 +6,7 @@ const VarsTempFileJsonPath = $VarsTempFilePath + ".json"
 if ($VarsTempFilePath | path exists) {} else {
     if ($VarsTempPath | path exists) {} else {
         mkdir $VarsTempPath
- 
+
         }
     print "Creating temp file"
     touch $VarsTempFilePath
@@ -31,18 +31,18 @@ def wrii [
     $safe_bk | to json | save -f $VarsTempFileJsonPath
 }
 
-$env.config.hooks = {
-    pre_execution: [
-        {
-            let repl_commandline = (commandline)
-            if ((([$repl_commandline] | where $it =~ "^(let|mut|const)") | length) > 0) {} else {
-                return
-            }
-            print $"save: ($repl_commandline)?"
-            let user_input = (input --default 1)
-            if ($user_input == "1") {
-                Write-CustomVars $repl_commandline
-            }
-        }
-    ]
-}
+# $env.config.hooks = {
+#     pre_execution: [
+#         {
+#             let repl_commandline = (commandline)
+#             if ((([$repl_commandline] | where $it =~ "^(let|mut|const)") | length) > 0) {} else {
+#                 return
+#             }
+#             print $"save: ($repl_commandline)?"
+#             let user_input = (input --default 1)
+#             if ($user_input == "1") {
+#                 Write-CustomVars $repl_commandline
+#             }
+#         }
+#     ]
+# }
