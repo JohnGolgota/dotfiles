@@ -27,8 +27,6 @@ $ziHandler = {
 if ($currentMode -eq 'Vi')
 {
 
-    Set-PSReadLineKeyHandler -Chord Ctrl+d -ViMode Command -ScriptBlock $exitHandler
-
     Set-PSReadLineKeyHandler -Chord Ctrl+e -ViMode Insert -ScriptBlock $editorHandler
 
     Set-PSReadLineKeyHandler -Chord Ctrl+q -ViMode Insert -ScriptBlock $explorerHandler

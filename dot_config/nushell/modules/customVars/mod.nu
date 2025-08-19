@@ -6,7 +6,8 @@ const VarsTempFileJsonPath = $VarsTempFilePath + ".json"
 if ($VarsTempFilePath | path exists) {} else {
     if ($VarsTempPath | path exists) {} else {
         mkdir $VarsTempPath
-    }
+ 
+        }
     print "Creating temp file"
     touch $VarsTempFilePath
 }
