@@ -21,3 +21,5 @@ Cargo.lock
 
 dot_config/nvim/lazy-lock.json
 
+# hate mac
+.DS_Store

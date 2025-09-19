@@ -7,8 +7,9 @@ function Get-LinuxPaths
         "$(join-path ${HOME} ".deno" "bin")",
         "$(join-path ${HOME} ".cargo" "bin")",
         "$(join-path ${HOME} ".bun" "bin")",
-        "$(join-path "/home" "linuxbrew" ".linuxbrew" "sbin")",
-        "$(join-path "/home" "linuxbrew" ".linuxbrew" "bin")"
+
+        "/$(join-path "home" "linuxbrew" ".linuxbrew" "sbin")",
+        "/$(join-path "home" "linuxbrew" ".linuxbrew" "bin")"
     )
 }
 
@@ -18,6 +19,7 @@ function Get-MacOSPaths
         "$(join-path ${HOME} ".local" "share" "pnpm")",
         "$(join-path ${HOME} ".bun" "bin")",
         "$(join-path ${HOME} ".nix-profile" "bin")",
+
         "/$(join-path "opt" "homebrew" "opt" "openjdk" "bin")",
         "/$(join-path "opt" "homebrew" "bin")",
         "/$(join-path "opt" "homebrew" "sbin")",
@@ -51,12 +53,14 @@ function Set-FullPath
         ":"
     }
     $NewPath = $Paths -join $separator
-    Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${NewPath}${separator}`$Env:PATH`""
+    Add-Content -Path $PROFILE -Value "`n"
+    Add-Content -Path $PROFILE -Value "`$Env:PATH = `"${NewPath}${separator}`$Env:PATH`""
 }
 
 function Set-CustomModulesImports
 {
-    Add-Content -Path $PROFILE -Value "`n. $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_Functions.ps1")"
+    Add-Content -Path $PROFILE -Value "`n"
+    Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_Functions.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "PS_Alias.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "CustomVarsModule.ps1")"
     Add-Content -Path $PROFILE -Value ". $(Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Custom_PSReadLineKeyHandler.ps1")"
@@ -67,11 +71,15 @@ function Set-Envs
 {
     if ($IsWindows)
     {
-        Add-Content -Path $PROFILE -Value "`n`$Env:KOMOREBI_CONFIG_HOME = `"$(Join-Path ${HOME} ".config" "komorebi")`""
+
+        Add-Content -Path $PROFILE -Value "`n"
+        Add-Content -Path $PROFILE -Value "`$Env:KOMOREBI_CONFIG_HOME = `"$(Join-Path ${HOME} ".config" "komorebi")`""
     }
     if ($IsMacOS)
     {
-        Add-Content -Path $PROFILE -Value "`n`$Env:GPG_TTY = `$(tty)"
+
+        Add-Content -Path $PROFILE -Value "`n"
+        Add-Content -Path $PROFILE -Value "`$Env:GPG_TTY = `$(tty)"
     }
 }
 
@@ -103,17 +111,20 @@ function Start-MainProccess
     # others programs configs
     if (Get-Command "fnm" -ErrorAction SilentlyContinue)
     {
-        Add-Content -Path $PROFILE -Value "`nfnm env --use-on-cd | Out-String | Invoke-Expression"
+        Add-Content -Path $PROFILE -Value "`n"
+        Add-Content -Path $PROFILE -Value "fnm env --use-on-cd | Out-String | Invoke-Expression"
     }
 
     if (Get-Command "starship" -ErrorAction SilentlyContinue)
     {
-        Add-Content -Path $PROFILE -Value "`nInvoke-Expression (&starship init powershell)"
+        Add-Content -Path $PROFILE -Value "`n"
+        Add-Content -Path $PROFILE -Value "Invoke-Expression (&starship init powershell)"
     }
 
     if (Get-Command "zoxide" -ErrorAction SilentlyContinue)
     {
-        Add-Content -Path $PROFILE -Value "`nInvoke-Expression (& { (zoxide init powershell | Out-String) })"
+        Add-Content -Path $PROFILE -Value "`n"
+        Add-Content -Path $PROFILE -Value "Invoke-Expression (& { (zoxide init powershell | Out-String) })"
     }
 
     Write-Host "Profile configured!"
