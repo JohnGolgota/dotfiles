@@ -83,13 +83,36 @@ function Set-Envs
     }
 }
 
+function Set-ThirdPartyConfig
+{
+    $thirdPartyEnvs = @{
+        "fnm" = "fnm env --use-on-cd | Out-String | Invoke-Expression"
+        "starship" = "Invoke-Expression (&starship init powershell)"
+        "zoxide" = "Invoke-Expression (& { (zoxide init powershell | Out-String) })"
+    }
+
+    foreach ($program in $thirdPartyEnvs.Keys)
+    {
+        Write-Host "Setting up $program"
+        if (Get-Command $program -ErrorAction SilentlyContinue)
+        {
+            Add-Content -Path $PROFILE -Value "`n"
+            Add-Content -Path $PROFILE -Value $thirdPartyEnvs[$program]
+            Write-Host "$program Set up!"
+        } else
+        {
+            Write-Host "$program not found!"
+        }
+    }
+}
+
 function Start-MainProccess
 {
 
     Write-Host "Configuring profile..."
     if (-not (Test-Path $PROFILE))
     {
-        Write-Host "Creating profile..."
+        Write-Host "Profile not found, creating..."
         New-Item -Path $PROFILE -ItemType File
     }
 
@@ -97,7 +120,8 @@ function Start-MainProccess
     Set-Content -Path $PROFILE -Value ""
 
     # Config PS region
-    Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode Vi"
+    $editMode = "Vi"
+    Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode $editMode"
 
     # Imports
     Set-CustomModulesImports
@@ -108,24 +132,8 @@ function Start-MainProccess
     # Envs
     Set-Envs
 
-    # others programs configs
-    if (Get-Command "fnm" -ErrorAction SilentlyContinue)
-    {
-        Add-Content -Path $PROFILE -Value "`n"
-        Add-Content -Path $PROFILE -Value "fnm env --use-on-cd | Out-String | Invoke-Expression"
-    }
-
-    if (Get-Command "starship" -ErrorAction SilentlyContinue)
-    {
-        Add-Content -Path $PROFILE -Value "`n"
-        Add-Content -Path $PROFILE -Value "Invoke-Expression (&starship init powershell)"
-    }
-
-    if (Get-Command "zoxide" -ErrorAction SilentlyContinue)
-    {
-        Add-Content -Path $PROFILE -Value "`n"
-        Add-Content -Path $PROFILE -Value "Invoke-Expression (& { (zoxide init powershell | Out-String) })"
-    }
+    # Third party Envs
+    Set-ThirdPartyConfig
 
     Write-Host "Profile configured!"
 
