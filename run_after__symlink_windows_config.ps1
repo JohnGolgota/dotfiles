@@ -1,49 +1,39 @@
 if ($IsWindows)
 {
-    $nvimConfDir = (Join-Path $env:LOCALAPPDATA "nvim")
-    if (-not (Test-Path $nvimConfDir))
-    {
-        New-Item -Path $nvimConfDir -ItemType Junction -Value ${HOME}\.config\nvim
+    $dotConfigDir = (Join-Path $HOME ".config")
+
+    $appConfigs = @{
+        nvim = $env:LOCALAPPDATA
+        rio = $env:LOCALAPPDATA
+        helix = $env:APPDATA
+        neovide = $env:APPDATA
+        alacritty = $env:APPDATA
+        nushell = $env:APPDATA
+        yazi = $env:APPDATA
     }
 
-    $rioConfDir = (Join-Path $env:LOCALAPPDATA "rio")
-    if (-not (Test-Path $rioConfDir))
+    foreach ($appConfig in $appConfigs.GetEnumerator())
     {
-        New-Item -Path $rioConfDir -ItemType Junction -Value ${HOME}\.config\rio
+        $targetDir = Join-Path $appConfig.Value $appConfig.Key
+        $sourceDir = Join-Path $dotConfigDir $appConfig.Key
+
+        if (-not (Test-Path $targetDir))
+        {
+            try
+            {
+                New-Item -Path $targetDir -ItemType Junction -Value $sourceDir
+            } catch
+            {
+                Write-Warning "Error while creating junction for $targetDir"
+            }
+        }
     }
 
-    $helixConfDir = (Join-Path $env:APPDATA "helix")
-    if (-not (Test-Path $helixConfDir))
+    $sourceProfile = Join-Path $dotConfigDir "powershell" "profile.ps1"
+    if (Test-Path $sourceProfile)
     {
-        New-Item -Path $helixConfDir -ItemType Junction -Value ${HOME}\.config\helix
+        Copy-Item -Path $sourceProfile -Destination $PROFILE.CurrentUserAllHosts -Force
     }
-
-    $neovideConfDir = (Join-Path $env:APPDATA "neovide")
-    if (-not (Test-Path $neovideConfDir))
-    {
-        New-Item -Path $neovideConfDir -ItemType Junction -Value ${HOME}\.config\neovide
-    }
-
-
-    $alacrittyConfDir = (Join-Path $env:APPDATA "alacritty")
-    if (-not (Test-Path $alacrittyConfDir))
-    {
-        New-Item -Path $alacrittyConfDir -ItemType Junction -Value ${HOME}\.config\alacritty
-    }
-
-    $nuShellConfDir = (Join-Path $env:APPDATA "nushell")
-    if (-not (Test-Path $nuShellConfDir))
-    {
-        New-Item -Path $nuShellConfDir -ItemType Junction -Value ${HOME}\.config\nushell
-    }
-
-    $yaziConfDir = (Join-Path $env:APPDATA "yazi")
-    if (-not (Test-Path $yaziConfDir))
-    {
-        New-Item -Path $yaziConfDir -ItemType Junction -Value ${HOME}\.config\yazi
-    }
-
-    Get-Content -Path ${HOME}\.config\powershell\profile.ps1 | Set-Content -Path $PROFILE.CurrentUserAllHosts
 
 }
 
