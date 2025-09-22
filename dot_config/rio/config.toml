@@ -129,7 +129,7 @@ args = []
 [window]
 # width = 600
 # height = 400
-# mode = "windowed"
+mode = "Maximized"
 opacity = 0.4
 # blur = false
 # decorations = "enabled"
@@ -291,7 +291,7 @@ family = "CaskaydiaCove Nerd Font"
 #
 # [shell]
 # program = "pwsh"
-# args = ["-l"]
+# args = ["-l", "--NoLogo"]
 #
 # Example 4 for MacOS with tmux installed by homebrew
 #
