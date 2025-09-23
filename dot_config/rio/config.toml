@@ -336,19 +336,19 @@ family = "CaskaydiaCove Nerd Font"
 # and `Window`.
 #
 # Example:
-# [shell]
-# # default (in this case will be used only on MacOS)
-# program = "/bin/fish"
-# args = ["--login"]
-#
+[shell]
+# default (in this case will be used only on MacOS)
+program = "/usr/local/microsoft/powershell/7/pwsh"
+args = ["-l", "--NoLogo"]
+
 [platform]
 # Microsoft Windows overwrite
 windows.shell.program = "pwsh"
-windows.shell.args = ["-NoLogo"]
-#
-# # Linux overwrite
-# linux.shell.program = "tmux"
-# linux.shell.args = ["new-session", "-c", "/var/www"]
+windows.shell.args = ["-l", "--NoLogo"]
+
+# Linux overwrite
+linux.shell.program = "pwsh"
+linux.shell.args = ["-l", "--NoLogo"]
 
 # Log level
 #
