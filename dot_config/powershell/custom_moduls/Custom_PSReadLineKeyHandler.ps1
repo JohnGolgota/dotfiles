@@ -6,7 +6,7 @@ $editorHandler = {
 }
 
 $explorerHandler = {
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('yazi')
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("yazi $($pwd.Path)")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
