@@ -23,3 +23,6 @@ dot_config/nvim/lazy-lock.json
 
 # hate mac
 .DS_Store
+
+# chezmoi local state
+.chezmoidata/*local.toml

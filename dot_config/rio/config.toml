@@ -26,7 +26,7 @@ theme = "carbonfox"
 # define x axis padding (default is 0)
 #
 # Example:
-# padding-x = 10
+padding-x = 10
 
 # Padding-y
 #

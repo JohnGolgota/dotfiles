@@ -1,0 +1,7 @@
+[github]
+    user = "JohnGolgota"
+    email = "104475729+JohnGolgota@users.noreply.github.com"
+
+[shell]
+    command = "pwsh"
+    args = ["-l", "-NoLogo"]

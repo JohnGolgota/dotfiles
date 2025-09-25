@@ -9,8 +9,10 @@ local act = wezterm.action
 {{ if eq .chezmoi.os "linux" }}
 config.default_prog = { "nu" }
 {{ else }}
-config.default_prog = { os.getenv("SHELL"), "-NoLogo" }
-{{ end }}config.color_scheme = "moonlight"
+config.default_prog = { "{{ .shell.command }}", "{{ .shell.args | join "\", \"" }}" }
+{{ end }}
+
+config.color_scheme = "moonlight"
 
 config.window_background_opacity = 0.6
 config.window_decorations = "RESIZE"
