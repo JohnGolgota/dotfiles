@@ -26,4 +26,4 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PATH="$PATH:/home/bazzite/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/bazzite/.local/share/JetBrains/Toolbox/scripts:$HOME/.cargo/bin"
