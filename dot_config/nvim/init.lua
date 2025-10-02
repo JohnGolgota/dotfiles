@@ -1,3 +1,4 @@
+require("config.lazy")
 require("kickstart")
 require("config")
 
