@@ -185,21 +185,35 @@ keybinds clear-defaults=true {
 }
 
 plugins {
-    tab-bar location="zellij:tab-bar"
-    status-bar location="zellij:status-bar"
-    strider location="zellij:strider"
+    about location="zellij:about"
     compact-bar location="zellij:compact-bar"
-    session-manager location="zellij:session-manager"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
+    configuration location="zellij:configuration"
     filepicker location="zellij:strider" {
         cwd "/"
     }
+    plugin-manager location="zellij:plugin-manager"
+    session-manager location="zellij:session-manager"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    tab-bar location="zellij:tab-bar"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen false
+    }
+}
+
+load_plugins {}
+
+web_client {
+    font "monospace"
 }
 
 theme "carbonfox"
 
 default_layout "work"
 
-default_shell "pwsh"
+default_shell "pwsh" {
+    args "-l" "-NoLogo"
+}
+
+show_startup_tips false
+
