@@ -2,7 +2,11 @@ def Get-CodeWorkspace [] {}
 
 def Set-TempEnvFromFile [file: string] {}
 
-def Hola [] {}
+def Hola [] {
+    let name = input "¿Cómo te llamas?: "
+    print $"¡Hola ($name)!"
+    curl ascii.live/donut
+}
 
 def Zellij-Attach [] {}
 
