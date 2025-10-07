@@ -2,3 +2,4 @@
 $Env:EDITOR = "{{ env "EDITOR" }}"
 {{ end -}}
 $Env:MI = "{{- .chezmoi.homeDir }}"
+$Env:TMUX_CONF = "{{- .chezmoi.homeDir }}/.config/tmux/tmux.conf"

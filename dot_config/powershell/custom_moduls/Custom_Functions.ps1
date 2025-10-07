@@ -60,3 +60,8 @@ function Zellij-Attach
     zellij a --index 0 || zellij
 }
 
+function Tmux-Attach
+{
+    tmux a || tmux
+}
+
