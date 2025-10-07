@@ -8,3 +8,17 @@ if [ -d "$common_setup" ]; then
 fi
 unset rc
 
+shell_setup="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zsh.d"
+if [ -d "$shell_setup" ]; then
+    for rc in "$shell_setup"/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
+
