@@ -1,0 +1,5 @@
+wez(){
+    $TERMINAL & \
+    exit
+}
+

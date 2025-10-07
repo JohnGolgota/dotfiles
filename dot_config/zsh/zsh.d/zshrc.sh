@@ -1,3 +1,51 @@
+
+open_editor() {
+    if [[ -n $EDITOR ]]; then
+        $EDITOR "$@"
+    else
+        echo "No editor set"
+    fi
+}
+
+zle -N open_editor
+bindkey '^E' open_editor
+
+open_yazi() {
+    yazi
+}
+
+zle -N open_yazi
+bindkey '^Q' open_yazi
+
+open_gitui() {
+    gitui
+}
+
+zle -N open_gitui
+bindkey '^G' open_gitui
+
+zle -N zi
+bindkey '^F' zi
+
+
+
+if command -v zoxide &> /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+    alias cd=z
+fi
+
+if command -v fzf &> /dev/null 2>&1; then
+    # Set up fzf key bindings and fuzzy completion
+    source <(fzf --zsh)
+fi
+
+if command -v atuin &> /dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+
+if command -v starship &> /dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
 # Set up the prompt
 
 autoload -Uz promptinit

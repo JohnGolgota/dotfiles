@@ -1,30 +1,10 @@
-if [[ -f ~/shell-setup/envs.sh ]]; then
-	source ~/shell-setup/envs.sh
+common_setup="${XDG_CONFIG_HOME:-$HOME/.config}/shell_setup/common"
+if [ -d "$common_setup" ]; then
+    for rc in "$common_setup"/*; do
+        if [ -f "$rc" ]; then
+            source "$rc"
+        fi
+    done
 fi
-
-if [[ -f ~/shell-setup/aliases.sh ]]; then
-	source ~/shell-setup/aliases.sh
-fi
-
-if command -v zoxide &> /dev/null 2>&1; then
-    eval "$(zoxide init zsh)"
-    alias cd=z
-fi
-
-if command -v fzf &> /dev/null 2>&1; then
-    # Set up fzf key bindings and fuzzy completion
-    source <(fzf --zsh)
-fi
-
-if command -v atuin &> /dev/null 2>&1; then
-    eval "$(atuin init zsh)"
-fi
-
-if command -v starship &> /dev/null 2>&1; then
-    eval "$(starship init zsh)"
-fi
-
-if [[ -f ~/shell-setup/zsh_bindkey.sh ]]; then
-	source ~/shell-setup/zsh_bindkey.sh
-fi
+unset rc
 
