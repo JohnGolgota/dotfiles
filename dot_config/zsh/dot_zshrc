@@ -1,3 +1,5 @@
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
 common_setup="${XDG_CONFIG_HOME:-$HOME/.config}/shell_setup/common"
 if [ -d "$common_setup" ]; then
     for rc in "$common_setup"/*; do
