@@ -1,4 +1,0 @@
-wez(){
-    $TERMINAL & \
-    exit
-}

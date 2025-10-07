@@ -18,8 +18,8 @@ unset rc
 
 bash_setup="${XDG_CONFIG_HOME:-$HOME/.config}/shell_setup/bash"
 # User specific aliases and functions
-if [ -d "$common_setup" ]; then
-    for rc in "$common_setup"/*; do
+if [ -d "$bash_setup" ]; then
+    for rc in "$bash_setup"/*; do
         if [ -f "$rc" ]; then
             . "$rc"
         fi
