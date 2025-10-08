@@ -25,4 +25,6 @@ dot_config/nvim/lazy-lock.json
 .DS_Store
 
 # chezmoi local state
-.chezmoidata/*local.toml
+.chezmoidata/9*.toml
+
+*local*
