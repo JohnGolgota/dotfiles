@@ -5,3 +5,20 @@
 [shell]
     command = "pwsh"
     args = ["-l", "-NoLogo"]
+    no_login_args = ["-NoProfile", "-Command"]
+
+# Example:
+#   command = "zsh"
+#   args = []
+#   no_login_args = ["-f", "-c"]
+
+#   command = "nu"
+#   args = []
+#   no_login_args = ["-n", -c"]
+
+# Environment variables
+[my_env]
+gitui = "gitui"
+explorer = "yazi"
+editor = "nvim"
+
