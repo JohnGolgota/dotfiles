@@ -6,11 +6,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- This is where you actually apply your config choices
-{{ if eq .chezmoi.os "linux" }}
-config.default_prog = { "nu" }
-{{ else }}
 config.default_prog = { "{{ .shell.command }}", "{{ .shell.args | join "\", \"" }}" }
-{{ end }}
 
 config.color_scheme = "moonlight"
 

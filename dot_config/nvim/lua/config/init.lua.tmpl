@@ -14,8 +14,9 @@ vim.keymap.set('n', '<leader><tab>d', "<cmd>tabclose<cr>", { desc = 'Close Tab' 
 vim.keymap.set('t', '<C-x>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Options
-vim.opt.shell = "pwsh"
-vim.opt.shellcmdflag = "-NoProfile -Command"
+vim.opt.shell = "{{ .shell.command }}"
+
+vim.opt.shellcmdflag = "{{ .shell.no_login_args | join " " }}"
 vim.opt.shellquote = ""
 vim.opt.shellxquote = ""
 

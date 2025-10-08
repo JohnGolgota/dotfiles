@@ -338,17 +338,17 @@ family = "CaskaydiaCove Nerd Font"
 # Example:
 [shell]
 # default (in this case will be used only on MacOS)
-program = "/usr/local/microsoft/powershell/7/pwsh"
-args = ["-l", "--NoLogo"]
+program = "{{ .shell.command }}"
+args = ["{{ .shell.args | join "\", \"" }}"]
 
-[platform]
+# [platform]
 # Microsoft Windows overwrite
-windows.shell.program = "pwsh"
-windows.shell.args = ["-l", "--NoLogo"]
+# windows.shell.program = "pwsh"
+# windows.shell.args = ["-l", "--NoLogo"]
 
 # Linux overwrite
-linux.shell.program = "pwsh"
-linux.shell.args = ["-l", "--NoLogo"]
+# linux.shell.program = "pwsh"
+# linux.shell.args = ["-l", "--NoLogo"]
 
 # Log level
 #

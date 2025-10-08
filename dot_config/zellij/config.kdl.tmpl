@@ -211,8 +211,8 @@ theme "carbonfox"
 
 default_layout "work"
 
-default_shell "pwsh" {
-    args "-l" "-NoLogo"
+default_shell "{{ .shell.command }}" {
+    args "{{ .shell.args | join "\" \"" }}"
 }
 
 show_startup_tips false

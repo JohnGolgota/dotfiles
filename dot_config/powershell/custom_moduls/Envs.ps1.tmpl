@@ -3,12 +3,14 @@
 $Env:EDITOR = "{{ env "EDITOR" }}"
 {{ end -}}
 
-# TMUX_* variables
-$Env:TMUX_CONF = "{{- .chezmoi.homeDir }}/.config/tmux/tmux.conf"
-
 # XDG_* variables
 $Env:XDG_CONFIG_HOME = "{{- .chezmoi.homeDir }}/.config"
 $Env:XDG_CACHE_HOME = "{{- .chezmoi.homeDir }}/.cache"
 $Env:XDG_DATA_HOME = "{{- .chezmoi.homeDir }}/.local/share"
 $Env:XDG_STATE_HOME = "{{- .chezmoi.homeDir }}/.local/state"
 
+# TMUX_* variables
+$Env:TMUX_CONF = "{{- .chezmoi.homeDir }}/.config/tmux/tmux.conf"
+
+# ZSH_*
+$Env:ZDOTDIR = "{{- .chezmoi.homeDir }}/.config/zsh"

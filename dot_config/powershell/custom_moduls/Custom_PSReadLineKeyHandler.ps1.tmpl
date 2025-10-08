@@ -6,7 +6,7 @@ $editorHandler = {
 }
 
 $explorerHandler = {
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("yazi $($pwd.Path)")
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("{{ .my_env.explorer }} $($pwd.Path)")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
@@ -15,7 +15,7 @@ $exitHandler = {
 }
 
 $gituiHandler = {
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('gitui')
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('{{ .my_env.gitui }}')
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
