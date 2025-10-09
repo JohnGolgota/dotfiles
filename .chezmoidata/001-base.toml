@@ -21,4 +21,4 @@
 gitui = "gitui"
 explorer = "yazi"
 editor = "nvim"
-
+terminal = "wezterm"

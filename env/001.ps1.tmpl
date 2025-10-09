@@ -1,0 +1,77 @@
+$CustomObject = @{
+    "paths" = @(
+        "/var/opt/microsoft/powershell/7",
+        "/usr/local/microsoft/powershell/7",
+        "/home/linuxbrew/.linuxbrew/sbin",
+        "/home/linuxbrew/.linuxbrew/bin",
+        "{{- .chezmoi.homeDir }}/.config/a-cli/bin",
+        "{{- .chezmoi.homeDir }}/bin",
+        "{{- .chezmoi.homeDir }}/.deno/bin",
+        "{{- .chezmoi.homeDir }}/.dotnet",
+        "{{- .chezmoi.homeDir }}/JS/bin",
+        "{{- .chezmoi.homeDir }}/asd/bin",
+        "{{- .chezmoi.homeDir }}/.dotnet/tools",
+        "{{- .chezmoi.homeDir }}/.local/share/bob/nvim-bin",
+        "{{- .chezmoi.homeDir }}/.cargo/bin",
+        "{{- .chezmoi.homeDir }}/.local/share/JetBrains/Toolbox/scripts",
+        "{{- .chezmoi.homeDir }}/.local/bin",
+        "{{- .chezmoi.homeDir }}/.bun/bin",
+        "{{- .chezmoi.homeDir }}/.local/share/pnpm"
+    )
+    "common" = @{
+        # Custom environment variables
+        "MY_GITUI" = "{{ .my_env.gitui }}"
+        "MY_EXPLORER" = "{{ .my_env.explorer }}"
+        "MY_EDITOR" = "{{ .my_env.editor }}"
+        # XDG Base Directory Specification
+        "XDG_CONFIG_HOME" = "{{- .chezmoi.homeDir }}/.config"
+        "XDG_CACHE_HOME" = "{{- .chezmoi.homeDir }}/.cache"
+        "XDG_DATA_HOME" = "{{- .chezmoi.homeDir }}/.local/share"
+        "XDG_STATE_HOME" = "{{- .chezmoi.homeDir }}/.local/state"
+        # Personal Environment Variables
+        "EDITOR" = "{{ .my_env.editor }}"
+        "TERMINAL" = "{{ .my_env.terminal }}"
+        "MY_PATHS" = "{{- .chezmoi.homeDir }}/JS/bin/private_hashtable.ps1;{{- .chezmoi.homeDir }}/JS/bin/repo.ps1"
+        "JS" = "{{- .chezmoi.homeDir }}/JS"
+        "MY_CD_CLI_PATH" = "{{- .chezmoi.homeDir }}/asd/bin/asd.ps1"
+        # DOTNET
+        "DOTNET_ROOT" = "{{- .chezmoi.homeDir }}/.dotnet"
+        # Bun
+        "BUN_INSTALL" = "{{- .chezmoi.homeDir }}/.bun"
+        "PNPM_HOME" = "{{- .chezmoi.homeDir }}/.local/share/pnpm"
+        # Tmux
+        "TMUX_CONF" = "{{- .chezmoi.homeDir }}/.config/tmux/tmux.conf"
+        # zsh
+        "ZDOTDIR" = "{{- .chezmoi.homeDir }}/.config/zsh"
+    }
+    "no_quotes" = @{}
+    "darwin" = @{
+        "paths" = @(
+            "/opt/homebrew/opt/openjdk/bin",
+            "/opt/homebrew/bin",
+            "/opt/homebrew/sbin",
+            "/nix/var/nix/profiles/default/bin"
+        )
+        "common" = @{
+            "CPPFLAGS" = "-I/opt/homebrew/opt/openjdk/include"
+        }
+        "no_quotes" = @{}
+    }
+    "linux" = @{
+        "paths" = @(
+            "/Applications/Docker.app/Contents/Resources/bin",
+            "{{- .chezmoi.homeDir }}/.nix-profile/bin"
+        )
+        "common" = @{}
+        "no_quotes" = @{
+            "GPG_TTY" = "`$(tty)"
+        }
+    }
+    "win" = @{
+        "paths" = @()
+        "common" = @{
+            "KOMOREBI_CONFIG_HOME" = "{{- .chezmoi.homeDir }}/.config/komorebi"
+        }
+        "no_quotes" = @{}
+    }
+}
