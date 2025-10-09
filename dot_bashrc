@@ -26,9 +26,3 @@ if [ -d "$bash_setup" ]; then
     done
 fi
 unset rc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
-
