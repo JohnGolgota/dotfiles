@@ -9,4 +9,5 @@ Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
 Set-Alias -Name co -Value codium -Option AllScope -Scope Global
 Set-Alias -Name a -Value A.ps1 -Option AllScope -Scope Global
 Set-Alias -Name tm -Value Tmux-Attach -Option AllScope -Scope Global
+Set-Alias -Name ls -Value Get-ChildItem -Option AllScope -Scope Global
 

@@ -4,7 +4,8 @@ $ZSH_PROFILE = Join-Path ${HOME} ".config" "shell_setup" "common" "001-env.sh"
 $DOT_ENVFILE = Join-Path ${HOME} "env" "101.env"
 . $(Join-Path ${HOME} "env" "001.ps1")
 
-function Build-CommonEnv {
+function Build-CommonEnv
+{
     param (
         [hashtable]$json
     )
@@ -12,20 +13,24 @@ function Build-CommonEnv {
     $CommonEnv = $json.common
     $Paths = $json.paths
     $NoQuotes = $json.no_quotes
-    if ($IsMacOS) {
+    if ($IsMacOS)
+    {
         $CommonEnv += $json.darwin.common
         $Paths += $json.darwin.paths
         $Paths += $json.linux.paths
         $NoQuotes += $json.darwin.no_quotes
+        $NoQuotes += $json.linux.no_quotes
     }
 
-    if ($IsLinux) {
+    if ($IsLinux)
+    {
         $CommonEnv += $json.linux.common
         $Paths += $json.linux.paths
         $NoQuotes += $json.linux.no_quotes
     }
 
-    if ($IsWindows) {
+    if ($IsWindows)
+    {
         $CommonEnv += $json.win.common
         $Paths += $json.win.paths
         $NoQuotes += $json.win.no_quotes
@@ -40,7 +45,8 @@ function Build-CommonEnv {
 
 $CommonEnv = Build-CommonEnv -json $CustomObject
 
-function Set-NuProfile {
+function Set-NuProfile
+{
     param (
         [hashtable]$json
     )
@@ -52,7 +58,8 @@ function Set-NuProfile {
     )
 
     # Clean nu profile
-    if (Test-Path $NU_PROFILE) {
+    if (Test-Path $NU_PROFILE)
+    {
         Set-Content -Path $NU_PROFILE -Value ""
     }
 
@@ -81,17 +88,23 @@ function Set-NuProfile {
 
 }
 
-function Set-ZshProfile {
+function Set-ZshProfile
+{
     param (
         [hashtable]$json
     )
 
     # Clean zsh profile
-    if (Test-Path $ZSH_PROFILE) {
+    if (Test-Path $ZSH_PROFILE)
+    {
         Set-Content -Path $ZSH_PROFILE -Value ""
     }
 
-    $separator = if ($IsWindows) { ";" } else { ":" }
+    $separator = if ($IsWindows)
+    { ";"
+    } else
+    { ":"
+    }
     $path_value = ($json.Paths -join $separator) + $separator + '$PATH'
     Add-Content -Path $ZSH_PROFILE -Value "export PATH=`"$path_value`"" -Force
 
@@ -109,16 +122,22 @@ function Set-ZshProfile {
     Add-Content -Path $ZSH_PROFILE -Value "" -Force
 }
 
-function Set-PSProfile {
+function Set-PSProfile
+{
     param (
         [hashtable]$json
     )
 
     # Clean ps profile
-    if (Test-Path $MY_PROFILE) {
+    if (Test-Path $MY_PROFILE)
+    {
         Set-Content -Path $MY_PROFILE -Value ""
     }
-    $separator = if ($IsWindows) { ";" } else { ":" }
+    $separator = if ($IsWindows)
+    { ";"
+    } else
+    { ":"
+    }
     $path_value = ($json.Paths -join $separator) + $separator + '$Env:PATH'
     Add-Content -Path $MY_PROFILE -Value "`$Env:PATH = `"$path_value`"" -Force
     Add-Content -Path $MY_PROFILE -Value "" -Force
@@ -134,17 +153,23 @@ function Set-PSProfile {
     Add-Content -Path $MY_PROFILE -Value "" -Force
 }
 
-function Set-DotEnvFile {
+function Set-DotEnvFile
+{
     param (
         [hashtable]$json
     )
 
     # Clean .env file
-    if (Test-Path $DOT_ENVFILE) {
+    if (Test-Path $DOT_ENVFILE)
+    {
         Set-Content -Path $DOT_ENVFILE -Value ""
     }
 
-    $separator = if ($IsWindows) { ";" } else { ":" }
+    $separator = if ($IsWindows)
+    { ";"
+    } else
+    { ":"
+    }
     $path_value = ($json.Paths -join $separator) + $separator + '$PATH'
     Add-Content -Path $DOT_ENVFILE -Value "PATH=`"$path_value`"" -Force
     Add-Content -Path $DOT_ENVFILE -Value "" -Force
@@ -161,7 +186,8 @@ function Set-DotEnvFile {
 
 }
 
-function Main {
+function Main
+{
     Set-NuProfile -json $CommonEnv
     Set-ZshProfile -json $CommonEnv
     Set-PSProfile -json $CommonEnv
