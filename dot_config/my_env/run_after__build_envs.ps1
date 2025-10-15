@@ -1,8 +1,14 @@
 $MY_PROFILE = Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Envs.ps1"
 $NU_PROFILE = Join-Path ${HOME} ".config" "nushell" "env.nu"
 $ZSH_PROFILE = Join-Path ${HOME} ".config" "shell_setup" "common" "001-env.sh"
-$DOT_ENVFILE = Join-Path ${HOME} "env" "101.env"
-. $(Join-Path ${HOME} "env" "001.ps1")
+$DOT_ENVFILE = Join-Path ${HOME} ".config" "my_env" "101.env"
+$basePath = Join-Path ${HOME} ".config" "my_env" "001.ps1"
+$localPath = Join-Path ${HOME} ".config" "my_env" "local.ps1"
+
+if (Test-Path $PROFILE) {
+    . $localPath
+}
+. $basePath
 
 function Build-CommonEnv
 {
@@ -42,8 +48,6 @@ function Build-CommonEnv
         NoQuotes = $NoQuotes
     }
 }
-
-$CommonEnv = Build-CommonEnv -json $CustomObject
 
 function Set-NuProfile
 {
@@ -188,6 +192,17 @@ function Set-DotEnvFile
 
 function Main
 {
+    $CommonEnv = Build-CommonEnv -json $CustomObject
+
+    if ($LocalCustomObject) {
+        Write-Host "Hay local"
+        $LocalCommonEnv = Build-CommonEnv -json $LocalCustomObject
+
+        $CommonEnv.Common += $LocalCommonEnv.Common
+        $CommonEnv.Paths += $LocalCommonEnv.Paths
+        $CommonEnv.NoQuotes += $LocalCommonEnv.NoQuotes
+    }
+
     Set-NuProfile -json $CommonEnv
     Set-ZshProfile -json $CommonEnv
     Set-PSProfile -json $CommonEnv

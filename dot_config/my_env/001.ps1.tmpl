@@ -7,10 +7,8 @@ $CustomObject = @{
         "{{- .chezmoi.homeDir }}/.config/a-cli/bin",
         "{{- .chezmoi.homeDir }}/bin",
         "{{- .chezmoi.homeDir }}/.deno/bin",
-        "{{- .chezmoi.homeDir }}/.dotnet",
         "{{- .chezmoi.homeDir }}/JS/bin",
         "{{- .chezmoi.homeDir }}/asd/bin",
-        "{{- .chezmoi.homeDir }}/.dotnet/tools",
         "{{- .chezmoi.homeDir }}/.local/share/bob/nvim-bin",
         "{{- .chezmoi.homeDir }}/.cargo/bin",
         "{{- .chezmoi.homeDir }}/.local/share/JetBrains/Toolbox/scripts",
@@ -59,8 +57,7 @@ $CustomObject = @{
     }
     "linux" = @{
         "paths" = @(
-            "/Applications/Docker.app/Contents/Resources/bin",
-            "{{- .chezmoi.homeDir }}/.nix-profile/bin"
+            "/Applications/Docker.app/Contents/Resources/bin"
         )
         "common" = @{}
         "no_quotes" = @{
