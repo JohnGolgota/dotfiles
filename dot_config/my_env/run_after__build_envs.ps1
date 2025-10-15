@@ -5,7 +5,7 @@ $DOT_ENVFILE = Join-Path ${HOME} ".config" "my_env" "101.env"
 $basePath = Join-Path ${HOME} ".config" "my_env" "001.ps1"
 $localPath = Join-Path ${HOME} ".config" "my_env" "local.ps1"
 
-if (Test-Path $PROFILE) {
+if (Test-Path $localPath) {
     . $localPath
 }
 . $basePath
@@ -89,6 +89,9 @@ function Set-NuProfile
     }
 
     Add-Content -Path $NU_PROFILE -Value "]" -Force
+    Add-Content -Path $NU_PROFILE -Value "" -Force
+
+    Add-Content -Path $NU_PROFILE -Value "`$env.Path = `$env.PATH | uniq" -Force
 
 }
 
@@ -142,8 +145,19 @@ function Set-PSProfile
     } else
     { ":"
     }
-    $path_value = ($json.Paths -join $separator) + $separator + '$Env:PATH'
-    Add-Content -Path $MY_PROFILE -Value "`$Env:PATH = `"$path_value`"" -Force
+    $path_joined = ($json.Paths -join $separator)
+    $path_value = $path_joined + $separator + '$Env:PATH'
+    Add-Content -Path $MY_PROFILE -Value @"
+if (-not ("`$Env:PATH" -like "*$path_joined*")) {
+    `$Env:PATH = `"$path_value`"
+}
+
+`$separator = `"$separator`"
+`$path = `$Env:PATH -split "`$separator" | Select-Object -Unique
+`$Env:PATH = `$path -join "`$separator"
+Clear-Variable separator
+Clear-Variable path
+"@ -Force
     Add-Content -Path $MY_PROFILE -Value "" -Force
 
     $json.Common.GetEnumerator() | ForEach-Object {
