@@ -5,7 +5,7 @@ $DOT_ENVFILE = Join-Path ${HOME} ".config" "my_env" "101.env"
 $basePath = Join-Path ${HOME} ".config" "my_env" "001.ps1"
 $localPath = Join-Path ${HOME} ".config" "my_env" "local.ps1"
 
-if (Test-Path $PROFILE) {
+if (Test-Path $localPath) {
     . $localPath
 }
 . $basePath
