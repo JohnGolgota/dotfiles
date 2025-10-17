@@ -23,5 +23,5 @@ $LocalCustomObject = @{
 }
 
 # can rewrite base environment variables like this
-
-$CustomObject.linux.paths = @()
+# $CustomObject.linux.paths = @()
+# Copy-Item .example.ps1 local.ps1
