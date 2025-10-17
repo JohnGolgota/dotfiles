@@ -5,10 +5,11 @@ $DOT_ENVFILE = Join-Path ${HOME} ".config" "my_env" "101.env"
 $basePath = Join-Path ${HOME} ".config" "my_env" "001.ps1"
 $localPath = Join-Path ${HOME} ".config" "my_env" "local.ps1"
 
+. $basePath
+
 if (Test-Path $localPath) {
     . $localPath
 }
-. $basePath
 
 function Build-CommonEnv
 {
@@ -22,6 +23,7 @@ function Build-CommonEnv
     if ($IsMacOS)
     {
         $CommonEnv += $json.darwin.common
+        $CommonEnv += $json.linux.common
         $Paths += $json.darwin.paths
         $Paths += $json.linux.paths
         $NoQuotes += $json.darwin.no_quotes
@@ -107,13 +109,16 @@ function Set-ZshProfile
         Set-Content -Path $ZSH_PROFILE -Value ""
     }
 
-    $separator = if ($IsWindows)
-    { ";"
-    } else
-    { ":"
-    }
-    $path_value = ($json.Paths -join $separator) + $separator + '$PATH'
-    Add-Content -Path $ZSH_PROFILE -Value "export PATH=`"$path_value`"" -Force
+    $separator = ":"
+    $path_joined = ($json.Paths -join $separator)
+    $path_value = $path_joined + $separator + '$PATH'
+    Add-Content -Path $ZSH_PROFILE -Value @"
+composed_path=`"$path_joined`"
+if [[ ":`$PATH:" != *":`$composed_path:"* ]]; then
+    export PATH=`"$path_value`"
+fi
+unset composed_path
+"@ -Force
 
     Add-Content -Path $ZSH_PROFILE -Value "" -Force
 
@@ -148,9 +153,7 @@ function Set-PSProfile
     $path_joined = ($json.Paths -join $separator)
     $path_value = $path_joined + $separator + '$Env:PATH'
     Add-Content -Path $MY_PROFILE -Value @"
-if (-not ("`$Env:PATH" -like "*$path_joined*")) {
-    `$Env:PATH = `"$path_value`"
-}
+`$Env:PATH = `"$path_value`"
 
 `$separator = `"$separator`"
 `$path = `$Env:PATH -split "`$separator" | Select-Object -Unique
