@@ -11,9 +11,9 @@ function Set-CustomModulesImports
 function Set-ThirdPartyConfig
 {
     $thirdPartyEnvs = @{
+        "zoxide" = "Invoke-Expression (& { (zoxide init powershell | Out-String) })"
         "fnm" = "fnm env --use-on-cd | Out-String | Invoke-Expression"
         "starship" = "Invoke-Expression (&starship init powershell)"
-        "zoxide" = "Invoke-Expression (& { (zoxide init powershell | Out-String) })"
     }
 
     foreach ($program in $thirdPartyEnvs.Keys)
