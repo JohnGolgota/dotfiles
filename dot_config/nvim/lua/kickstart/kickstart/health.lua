@@ -12,7 +12,7 @@ local check_version = function()
       return
    end
 
-   if vim.version.ge(vim.version(), "0.10-dev") then
+   if vim.version.ge(vim.version(), "0.11") then
       vim.health.ok(string.format("Neovim version is: '%s'", verstr))
    else
       vim.health.error(string.format("Neovim out of date: '%s'. Upgrade to latest stable or nightly", verstr))
@@ -39,9 +39,9 @@ return {
 
       vim.health.info([[NOTE: Not every warning is a 'must-fix' in `:checkhealth`
 
-    Fix only warnings for plugins and languages you intend to use.
-      Mason will give warnings for languages that are not installed.
-      You do not need to install, unless you want to use those languages!]])
+  Fix only warnings for plugins and languages you intend to use.
+    Mason will give warnings for languages that are not installed.
+    You do not need to install, unless you want to use those languages!]])
 
       local uv = vim.uv or vim.loop
       vim.health.info("System Information: " .. vim.inspect(uv.os_uname()))
