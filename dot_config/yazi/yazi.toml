@@ -16,8 +16,3 @@
 # ]
 #
 
-[opener]
-edit = [
-{ run = "${EDITOR} \"$@\"", block = true, orphan = false, desc = "$EDITOR", for = "unix", spread = true },
-]
-
