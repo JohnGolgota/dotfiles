@@ -1,0 +1,41 @@
+[font]
+family = ["CaskaydiaCove Nerd Font Mono", "Open Sans"]
+size = 14.0
+builtin_box_drawing = true
+
+[window]
+padding = 8
+columns = 100
+rows = 30
+tab_bar = "auto"
+decorations = "integrated"
+opacity = 0.50
+blur = true
+
+[window.title_bar]
+button_style = "circles"
+height = 34
+show_title = true
+show_icon = true
+
+[colors]
+theme = "tokyo-night"
+
+[shell]
+program = "{{ .shell.command }}"
+args = ["{{ .shell.args | join "\", \"" }}"]
+
+[renderer]
+backend = "auto"
+
+[scrollback]
+lines = 10000
+
+[selection]
+copy_on_select = "primary"
+
+[panes]
+divider_width = 1
+inactive_dim = 0.25
+
+[keybindings]

@@ -1,6 +1,11 @@
-fnm env --use-on-cd --shell fish | source
+if test -f (command -v fnm)
+    fnm env --use-on-cd --shell fish | source
+end
 
-zoxide init fish | source
+if test -f (command -v zoxide)
+    zoxide init fish | source
+end
 
-starship init fish | source
-
+if test -f (command -v starship)
+    starship init fish | source
+end
