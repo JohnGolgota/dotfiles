@@ -1,4 +1,0 @@
-[".config/a-cli"]
-    type = "git-repo"
-    url = "https://github.com/JohnGolgota/a-cli.git"
-    refreshPeriod = "168h"
