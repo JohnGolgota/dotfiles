@@ -1,0 +1,1 @@
+source (sed 's/^/export /' {{ .chezmoi.homeDir }}/.config/my_env/101.env | psub) &>/dev/null
