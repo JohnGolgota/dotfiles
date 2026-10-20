@@ -1,4 +1,4 @@
-const VarsTempPath = $nu.home-path + "/temp"
+const VarsTempPath = $nu.home-dir + "/temp"
 const VarsTempFilePath = $VarsTempPath + "/vars.nu"
 const VarsTempFileJsonPath = $VarsTempFilePath + ".json"
 
