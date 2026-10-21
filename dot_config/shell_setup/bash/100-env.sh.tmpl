@@ -1,0 +1,3 @@
+set -a
+source {{ list .chezmoi.homeDir ".config" "my_env" "101.env" | join "/" | osClean }}
+set +a

@@ -1,6 +1,5 @@
 $MY_PROFILE = Join-Path ${HOME} ".config" "powershell" "custom_moduls" "Envs.ps1"
 $NU_PROFILE = Join-Path ${HOME} ".config" "nushell" "env.nu"
-$ZSH_PROFILE = Join-Path ${HOME} ".config" "shell_setup" "common" "001-env.sh"
 $DOT_ENVFILE = Join-Path ${HOME} ".config" "my_env" "101.env"
 $basePath = Join-Path ${HOME} ".config" "my_env" "001.ps1"
 $localPath = Join-Path ${HOME} ".config" "my_env" "local.ps1"
@@ -97,43 +96,6 @@ function Set-NuProfile
 
 }
 
-function Set-ZshProfile
-{
-    param (
-        [hashtable]$json
-    )
-
-    # Clean zsh profile
-    if (Test-Path $ZSH_PROFILE)
-    {
-        Set-Content -Path $ZSH_PROFILE -Value ""
-    }
-
-    $separator = ":"
-    $path_joined = ($json.Paths -join $separator)
-    $path_value = $path_joined + $separator + '$PATH'
-    Add-Content -Path $ZSH_PROFILE -Value @"
-composed_path=`"$path_joined`"
-if [[ ":`$PATH:" != *":`$composed_path:"* ]]; then
-    export PATH=`"$path_value`"
-fi
-unset composed_path
-"@ -Force
-
-    Add-Content -Path $ZSH_PROFILE -Value "" -Force
-
-    $json.Common.GetEnumerator() | ForEach-Object {
-        Add-Content -Path $ZSH_PROFILE -Value "export $($_.Key)=`"$($_.Value)`"" -Force
-    }
-
-    Add-Content -Path $ZSH_PROFILE -Value "" -Force
-
-    $json.NoQuotes.GetEnumerator() | ForEach-Object {
-        Add-Content -Path $ZSH_PROFILE -Value "export $($_.Key)=$($_.Value)" -Force
-    }
-    Add-Content -Path $ZSH_PROFILE -Value "" -Force
-}
-
 function Set-PSProfile
 {
     param (
@@ -221,10 +183,8 @@ function Main
     }
 
     Set-NuProfile -json $CommonEnv
-    Set-ZshProfile -json $CommonEnv
     Set-PSProfile -json $CommonEnv
     Set-DotEnvFile -json $CommonEnv
 }
 
 Main
-
