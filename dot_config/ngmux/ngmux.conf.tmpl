@@ -1,4 +1,4 @@
-set default-shell {{ .shell.command }}
+set default-shell {{ .shell.command }} {{ .shell.args | join " " }}
 set theme dark
 
 bind v split-vertical

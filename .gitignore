@@ -28,3 +28,8 @@ dot_config/nvim/lazy-lock.json
 .chezmoidata/9*.toml
 
 *local*
+
+dot_config/powershell/pwsh.d
+!dot_config/powershell/pwsh.d/.gitkeep
+
+
